@@ -1,0 +1,7 @@
+ ./reducers/index.js - partially
+ ./actions/index.js - partially
+ * ./index.js - completed 
+ * ./App.js - completed
+ * ./components/AddForm.js  
+ * ./components/Smurf.js 
+ * ./components/SmurfDisplay.js
