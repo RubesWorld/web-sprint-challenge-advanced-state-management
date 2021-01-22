@@ -12,6 +12,11 @@ class AddForm extends React.Component {
     nickname: "",
     description: "",
   };
+
+  //   const handleChange = () => {
+
+  //   }
+
   render() {
     return (
       <section>

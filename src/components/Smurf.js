@@ -1,12 +1,42 @@
-import React from 'react';
+import React from "react";
+
+const dummyData = [
+  {
+    name: "Poppa Smurf",
+    position: "Village Leader",
+    nickname: "Pops",
+    description:
+      "Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.",
+  },
+  {
+    id: "JzdWIiOiIxMjM0NTY3ODkwIiwibmFtZ",
+    name: "Smurfette",
+    position: "Beautician",
+    nickname: "Smurfette",
+    description:
+      "Smurfette's role in the village is that of any other smurf; chores, and helping out where she can, but for her specifically, she is often seen to be very active in organizing events.",
+  },
+];
 
 class Smurf extends React.Component {
-    render() {
-        const { smurf } = this.props;
+  render() {
+    const { smurf } = this.props;
 
-        return(<div data-testid="smurf" className="card">
-        </div>);
-    }
+    return (
+      <div data-testid="smurf" className="card">
+        {dummyData.map((display) => {
+          return (
+            <div key={display.id}>
+              <h1>{display.name}</h1>
+              <h2>{display.position}</h2>
+              <h3>{dummyData.nickname}</h3>
+              <p>{display.description}</p>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
 }
 
 export default Smurf;
