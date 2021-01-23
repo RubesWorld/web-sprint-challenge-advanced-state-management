@@ -8,7 +8,6 @@ import axios from "axios";
 import { connect } from "react-redux";
 
 //actions
-import { getSmurfAction } from "./actions";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -33,18 +32,7 @@ const App = () => {
   );
 };
 
-const mapStateToProps = (state) => {
-  console.log("State:", state);
-  return {
-    info: state.data,
-    isFetching: state.isFetching,
-    error: state.error,
-  };
-};
-
-export default connect(mapStateToProps, { getSmurfAction })(App);
-
-// export default App;
+export default App;
 
 //Task List:
 //1. Add in SmurfDisplay and AddForm into your application.

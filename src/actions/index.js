@@ -6,11 +6,10 @@ export const ADD_SMURF = "ADD_SMURF";
 export const FETCH_SMURF_FAIL = "FETCH_SMURF_FAIL";
 
 //1 fetch smurf action
-export const getSmurfAction = (url) => (dispatch) => {
+export const getSmurfAction = () => (dispatch) => {
   dispatch({ type: FETCH_SMURF_START });
-  console.log("fired");
   axios
-    .get(url)
+    .get("http:/localhost:3333/smurfs")
     .then((res) => {
       console.log("response:", res);
       dispatch({ type: FETCH_SMURF_SUCCESS, payload: res.data });
