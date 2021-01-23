@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Smurf from "./Smurf";
 
-//redux import
+//redux connect import
 import { connect } from "react-redux";
 
 //actions
