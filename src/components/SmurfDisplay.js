@@ -12,24 +12,23 @@ const SmurfDisplay = ({ getSmurfAction, isFetching, smurfs }) => {
     getSmurfAction();
   }, []);
 
-  if (isFetching) {
-    return <h2>Fetching Smurfies</h2>;
-  } else
-    return (
-      <div>
-        {smurfs.map((smurf) => {
+  return (
+    <div>
+      {isFetching ? (
+        <h2>Fetching Smurfies...</h2>
+      ) : (
+        smurfs.map((smurf) => {
           return <Smurf smurf={smurf} />;
-        })}
-      </div>
-    );
+        })
+      )}
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => {
-  console.log("This is State:", state);
   return {
     smurfs: state.smurfs,
     isFetching: state.isFetching,
-    error: state.error,
   };
 };
 

@@ -11,8 +11,6 @@ import { Provider } from "react-redux";
 //import middleware
 import thunk from "redux-thunk";
 
-//import reducer
-
 //create dummy reducer
 // const reducer = () => {
 //   return {
@@ -22,7 +20,6 @@ import thunk from "redux-thunk";
 
 //create store
 const store = createStore(smurfReducer, applyMiddleware(thunk));
-console.log(store);
 
 const { worker } = require("./mocks/browser");
 worker.start();

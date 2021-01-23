@@ -1,13 +1,15 @@
 import React from "react";
 
-const Smurf = ({ smurf }) => {
+const Smurf = (props) => {
+  const { name, position, nickname, description } = props.smurf;
+
   return (
     <div data-testid="smurf" className="card">
-      <div key={smurf.id}>
-        <h1>{smurf.name}</h1>
-        <h2>{smurf.position}</h2>
-        <h3>{smurf.nickname}</h3>
-        <p>{smurf.description}</p>
+      <div>
+        <h1>{name}</h1>
+        <h2>{position}</h2>
+        <h3>{nickname}</h3>
+        <p>{description}</p>
       </div>
     </div>
   );

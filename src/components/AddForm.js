@@ -25,6 +25,7 @@ const AddForm = ({ addSmurfAction, error }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addSmurfAction(values);
+    console.log("values", values);
     setValues(initialInfo);
   };
 
@@ -88,9 +89,7 @@ const AddForm = ({ addSmurfAction, error }) => {
 
 const mapStateToProps = (state) => {
   return {
-    smurfs: state.smurfs,
-    isFetching: state.isFetching,
-    error: state.error,
+    errorMessage: state.errorMessage,
   };
 };
 
