@@ -70,7 +70,7 @@ const AddForm = ({ addSmurfAction, error }) => {
           ></textarea>
         </div>
 
-        {error !== "" ? (
+        {error ? (
           <div
             data-testid="errorAlert"
             className="alert alert-danger"
@@ -89,6 +89,8 @@ const AddForm = ({ addSmurfAction, error }) => {
 
 const mapStateToProps = (state) => {
   return {
+    smurfs: state.smurfs,
+    isFetching: state.isFetching,
     errorMessage: state.errorMessage,
   };
 };

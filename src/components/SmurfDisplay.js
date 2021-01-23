@@ -18,7 +18,7 @@ const SmurfDisplay = ({ getSmurfAction, isFetching, smurfs }) => {
         <h2>Fetching Smurfies...</h2>
       ) : (
         smurfs.map((smurf) => {
-          return <Smurf smurf={smurf} />;
+          return <Smurf key={smurf.id} smurf={smurf} />;
         })
       )}
     </div>
