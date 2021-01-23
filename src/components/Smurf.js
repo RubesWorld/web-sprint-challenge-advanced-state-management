@@ -1,5 +1,11 @@
 import React from "react";
 
+//import redux imports
+import { connect } from "react-redux";
+
+//action import
+import { getSmurfAction } from "../actions";
+
 const dummyData = [
   {
     name: "Poppa Smurf",
@@ -18,28 +24,26 @@ const dummyData = [
   },
 ];
 
-class Smurf extends React.Component {
-  render() {
-    const { smurf } = this.props;
+const Smurf = () => {
+  //   const { smurf } = props;
 
-    return (
-      <div data-testid="smurf" className="card">
-        {dummyData.map((display) => {
-          return (
-            <div key={display.id}>
-              <h1>{display.name}</h1>
-              <h2>{display.position}</h2>
-              <h3>{dummyData.nickname}</h3>
-              <p>{display.description}</p>
-            </div>
-          );
-        })}
-      </div>
-    );
-  }
-}
+  return (
+    <div data-testid="smurf" className="card">
+      {dummyData.map((display) => {
+        return (
+          <div key={display.id}>
+            <h1>{display.name}</h1>
+            <h2>{display.position}</h2>
+            <h3>{dummyData.nickname}</h3>
+            <p>{display.description}</p>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
-export default Smurf;
+export default connect(null, { getSmurfAction })(Smurf);
 
 //Task List:
 //1. Access smurf to be displayed through props.

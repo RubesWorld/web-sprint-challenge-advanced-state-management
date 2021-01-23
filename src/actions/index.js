@@ -6,11 +6,11 @@ export const ADD_SMURF = "ADD_SMURF";
 export const FETCH_SMURF_FAIL = "FETCH_SMURF_FAIL";
 
 //1 fetch smurf action
-export const getSmurfAction = () => (dispatch) => {
+export const getSmurfAction = (url) => (dispatch) => {
   dispatch({ type: FETCH_SMURF_START });
   console.log("fired");
   axios
-    .get("http:/localhost:3333/smurfs")
+    .get(url)
     .then((res) => {
       console.log("response:", res);
       dispatch({ type: FETCH_SMURF_SUCCESS, payload: res.data });
@@ -21,9 +21,14 @@ export const getSmurfAction = () => (dispatch) => {
 };
 
 export const addSmurfAction = (smurfDetails) => (dispatch) => {
-  dispatch({ type: ADD_SMURF });
-  console.log("Added");
-  axios.post();
+  axios
+    .post("http:/localhost:3333/smurfs", smurfDetails)
+    .then((res) => {
+      dispatch({ type: ADD_SMURF, payload: res.data });
+    })
+    .catch((err) => {
+      console.log("error", err);
+    });
 };
 
 //Task List:

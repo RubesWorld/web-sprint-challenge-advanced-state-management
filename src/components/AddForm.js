@@ -1,61 +1,79 @@
-import React from "react";
+import React, { useState } from "react";
 //actions
 import { getSmurfAction } from "../actions";
 
 //redux imports
 import { connect } from "react-redux";
 
-class AddForm extends React.Component {
-  state = {
+const AddForm = () => {
+  const [values, setValues] = useState({
     name: "",
     position: "",
     nickname: "",
     description: "",
+  });
+
+  //   const handleSubmit = (e) => {
+  //     e.preventDefault();
+  //   };
+
+  const handleChanges = (e) => {
+    const words = e.target.value;
+    setValues({
+      ...values,
+      [e.target.name]: words,
+    });
   };
 
-  //   const handleChange = () => {
+  return (
+    <section>
+      <h2>Add Smurf</h2>
+      <form>
+        <div className="form-group">
+          <label htmlFor="name">Name:</label>
+          <br />
+          <input
+            onChange={handleChanges}
+            name="name"
+            id="name"
+            placeholder="Enter Name..."
+          />
+          <br />
+          <label htmlFor="position">Position</label>
+          <input
+            onChange={handleChanges}
+            name="position"
+            id="position"
+            placeholder="Enter Position..."
+          ></input>
+          <label htmlFor="nickname">Nickname</label>
+          <input
+            onChange={handleChanges}
+            name="nickname"
+            id="nickname"
+            placeholder="Enter Nickname..."
+          ></input>
+          <label htmlFor="description">Description</label>
+          <textarea
+            onChange={handleChanges}
+            name="description"
+            id="description"
+            placeholder="Enter Description..."
+          ></textarea>
+        </div>
 
-  //   }
-
-  render() {
-    return (
-      <section>
-        <h2>Add Smurf</h2>
-        <form>
-          <div className="form-group">
-            <label htmlFor="name">Name:</label>
-            <br />
-            <input onChange={this.handleChange} name="name" id="name" />
-            <br />
-            <label htmlFor="position">Position</label>
-            <input
-              onChange={this.handleChange}
-              name="position"
-              id="position"
-            ></input>
-            <label htmlFor="nickname">Nickname</label>
-            <input onChange={this.handleChange} name="nickname" id="id"></input>
-            <label htmlFor="description">Description</label>
-            <textarea
-              onChange={this.handleChange}
-              name="description"
-              id="description"
-            ></textarea>
-          </div>
-
-          <div
-            data-testid="errorAlert"
-            className="alert alert-danger"
-            role="alert"
-          >
-            Error:{" "}
-          </div>
-          <button>Submit Smurf</button>
-        </form>
-      </section>
-    );
-  }
-}
+        <div
+          data-testid="errorAlert"
+          className="alert alert-danger"
+          role="alert"
+        >
+          Error:{" "}
+        </div>
+        <button>Submit Smurf</button>
+      </form>
+    </section>
+  );
+};
 
 export default AddForm;
 
