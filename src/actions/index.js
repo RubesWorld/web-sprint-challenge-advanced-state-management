@@ -9,8 +9,9 @@ export const FETCH_SMURF_FAIL = "FETCH_SMURF_FAIL";
 export const getSmurfAction = () => (dispatch) => {
   dispatch({ type: FETCH_SMURF_START });
   axios
-    .get("http:/localhost:3333/smurfs")
+    .get("http://localhost:3333/smurfs")
     .then((res) => {
+      console.log("made it", res);
       dispatch({ type: FETCH_SMURF_SUCCESS, payload: res.data });
     })
     .catch((err) => {
@@ -20,7 +21,7 @@ export const getSmurfAction = () => (dispatch) => {
 
 export const addSmurfAction = (smurfDetails) => (dispatch) => {
   axios
-    .post("http:/localhost:3333/smurfs", smurfDetails)
+    .post("http://localhost:3333/smurfs", smurfDetails)
     .then((res) => {
       dispatch({ type: ADD_SMURF, payload: res.data });
     })

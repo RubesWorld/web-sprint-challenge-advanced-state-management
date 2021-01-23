@@ -26,6 +26,7 @@ const SmurfDisplay = ({ getSmurfAction, isFetching, smurfs }) => {
 };
 
 const mapStateToProps = (state) => {
+  console.log("STATE", state);
   return {
     smurfs: state.smurfs,
     isFetching: state.isFetching,

@@ -17,10 +17,13 @@ const smurfReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: true,
+        errorMessage: "",
+        smurfs: [],
       };
     case FETCH_SMURF_SUCCESS:
       return {
         ...state,
+        errorMessage: "",
         smurfs: action.payload,
         isFetching: false,
       };
