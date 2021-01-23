@@ -7,14 +7,12 @@ import { connect } from "react-redux";
 //actions
 import { getSmurfAction } from "../actions";
 
-const SmurfDisplay = ({ error, isFetching, smurfs }) => {
+const SmurfDisplay = ({ getSmurfAction, isFetching, smurfs }) => {
   useEffect(() => {
     getSmurfAction();
   }, []);
 
-  if (error) {
-    return <h2>There is an error</h2>;
-  } else if (isFetching) {
+  if (isFetching) {
     return <h2>Fetching Smurfies</h2>;
   } else
     return (

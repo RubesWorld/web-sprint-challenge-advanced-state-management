@@ -1,35 +1,37 @@
 import React, { useState } from "react";
 //actions
-import { getSmurfAction } from "../actions";
+import { addSmurfAction } from "../actions";
 
 //redux imports
 import { connect } from "react-redux";
 
-const AddForm = () => {
-  const [values, setValues] = useState({
-    name: "",
-    position: "",
-    nickname: "",
-    description: "",
-  });
+const initialInfo = {
+  name: "",
+  position: "",
+  nickname: "",
+  description: "",
+};
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   handle
-  // };
+const AddForm = ({ addSmurfAction, error }) => {
+  const [values, setValues] = useState(initialInfo);
 
   const handleChanges = (e) => {
-    const words = e.target.value;
     setValues({
       ...values,
-      [e.target.name]: words,
+      [e.target.name]: e.target.value,
     });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addSmurfAction(values);
+    setValues(initialInfo);
   };
 
   return (
     <section>
       <h2>Add Smurf</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name:</label>
           <br />
@@ -38,6 +40,7 @@ const AddForm = () => {
             name="name"
             id="name"
             placeholder="Enter Name..."
+            values={values.name}
           />
           <br />
           <label htmlFor="position">Position</label>
@@ -46,6 +49,7 @@ const AddForm = () => {
             name="position"
             id="position"
             placeholder="Enter Position..."
+            values={values.position}
           ></input>
           <label htmlFor="nickname">Nickname</label>
           <input
@@ -53,6 +57,7 @@ const AddForm = () => {
             name="nickname"
             id="nickname"
             placeholder="Enter Nickname..."
+            values={values.nickname}
           ></input>
           <label htmlFor="description">Description</label>
           <textarea
@@ -60,23 +65,36 @@ const AddForm = () => {
             name="description"
             id="description"
             placeholder="Enter Description..."
+            values={values.description}
           ></textarea>
         </div>
 
-        <div
-          data-testid="errorAlert"
-          className="alert alert-danger"
-          role="alert"
-        >
-          Error:{" "}
-        </div>
+        {error !== "" ? (
+          <div
+            data-testid="errorAlert"
+            className="alert alert-danger"
+            role="alert"
+          >
+            Error:{error}
+          </div>
+        ) : (
+          ""
+        )}
         <button>Submit Smurf</button>
       </form>
     </section>
   );
 };
 
-export default AddForm;
+const mapStateToProps = (state) => {
+  return {
+    smurfs: state.smurfs,
+    isFetching: state.isFetching,
+    error: state.error,
+  };
+};
+
+export default connect(mapStateToProps, { addSmurfAction })(AddForm);
 
 //Task List:
 //1. Add in all necessary import components and library methods.

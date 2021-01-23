@@ -5,7 +5,6 @@ import SmurfDisplay from "./components/SmurfDisplay";
 import axios from "axios";
 
 //redux import
-import { connect } from "react-redux";
 
 //actions
 

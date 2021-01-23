@@ -9,6 +9,7 @@ export const smurfReducer = (state = initialState, action) => {
     case "FETCH_SMURF_START":
       return {
         ...state,
+        smurfs: [],
         isFetching: true,
         error: "",
       };

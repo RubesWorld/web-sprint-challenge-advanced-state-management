@@ -11,7 +11,7 @@ export const getSmurfAction = () => (dispatch) => {
   axios
     .get("http:/localhost:3333/smurfs")
     .then((res) => {
-      console.log("response:", res);
+      console.log("response:", res.data);
       dispatch({ type: FETCH_SMURF_SUCCESS, payload: res.data });
     })
     .catch((err) => {
@@ -23,6 +23,7 @@ export const addSmurfAction = (smurfDetails) => (dispatch) => {
   axios
     .post("http:/localhost:3333/smurfs", smurfDetails)
     .then((res) => {
+      console.log("add res", res.data);
       dispatch({ type: ADD_SMURF, payload: res.data });
     })
     .catch((err) => {

@@ -1,11 +1,5 @@
 import React from "react";
 
-//import redux imports
-import { connect } from "react-redux";
-
-//action import
-import { getSmurfAction } from "../actions";
-
 const Smurf = ({ smurf }) => {
   return (
     <div data-testid="smurf" className="card">
@@ -19,7 +13,7 @@ const Smurf = ({ smurf }) => {
   );
 };
 
-export default connect(null, { getSmurfAction })(Smurf);
+export default Smurf;
 
 //Task List:
 //1. Access smurf to be displayed through props.
