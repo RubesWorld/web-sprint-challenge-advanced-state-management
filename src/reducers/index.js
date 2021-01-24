@@ -5,6 +5,8 @@ import {
   FETCH_SMURF_FAIL,
 } from "../actions";
 
+//The created state.
+//*You want to make it accessible to the data that will be coming in. In this case, it is an array of objects (smurfs), a boolean and string
 export const initialState = {
   smurfs: [],
   isFetching: false,

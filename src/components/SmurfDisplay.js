@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import Smurf from "./Smurf";
 
-//redux connect import
+//redux connect import. Used to bring state into components
 import { connect } from "react-redux";
 
-//actions
+//actions. Used to make changes to state
 import { getSmurfAction } from "../actions";
 
 const SmurfDisplay = ({ getSmurfAction, isFetching, smurfs }) => {

@@ -3,8 +3,6 @@ import React from "react";
 import AddForm from "./components/AddForm";
 import SmurfDisplay from "./components/SmurfDisplay";
 
-//redux import
-
 //actions
 
 import "bootstrap/dist/css/bootstrap.min.css";
